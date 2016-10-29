@@ -1,4 +1,6 @@
 #!/bin/bash
+# Utility script to create tags based on version file
+# verison file must be in the same directory as this script
 
 # http://stackoverflow.com/questions/3878624/how-do-i-programmatically-determine-if-there-are-uncommited-changes
 require_clean_work_tree () {
