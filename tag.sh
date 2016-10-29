@@ -31,14 +31,17 @@ require_clean_work_tree () {
     fi
 }
 
-
+# load version from file and tag
 VERSION=$(cat version)
+# ensure the user is up-to-date
 echo "checking workspace"
 require_clean_work_tree
 echo "creating tag $VERSION"
 git tag -a $VERSION -m $VERSION
+# on error (e.g. duplicate tag) exit
 if [ $? -ne 0 ]; then
     exit $?
 fi
+# push
 echo "pushing tag"
 git push origin $VERSION
